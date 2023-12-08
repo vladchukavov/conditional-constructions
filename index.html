@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="output"></div>
+<script>
+    let userBio = {
+        name: undefined,
+        lastName: undefined,
+        age: NaN,
+        dayOfBirth: NaN,
+        monthOfBirth: NaN,
+        yearOfBirth: NaN,
+        starSign: undefined,
+        leapYear: '',
+    }
+
+    let forNameCheck = prompt('Whats your name?');
+    if (forNameCheck.length > 2) {
+       userBio.name = forNameCheck;
+        let forLastNameCheck = prompt('Whats your last name?');
+        if (forLastNameCheck.length > 2) {
+            userBio.lastName = forLastNameCheck;
+            if (isNaN(userBio.dayOfBirth = +prompt('Day of birth?'))) {
+                alert('Enter numbers for the day');
+            }
+            if (isNaN(userBio.monthOfBirth = +prompt('Month of birth?'))) {
+                alert('Enter numbers for the month');
+            }
+            if (isNaN(userBio.yearOfBirth = +prompt('Year of birth?'))) {
+                alert('Enter numbers for the year');
+            }
+        }
+        else {
+            alert('Few characters in the name!');
+        }
+    } else {
+        alert('Few characters in the name!');
+    }
+
+    const userAge = 2022;
+    userBio.age = userAge - userBio.yearOfBirth;
+    if (
+        (userBio.monthOfBirth === 1 && userBio.dayOfBirth >= 20) || (userBio.monthOfBirth === 2 && userBio.dayOfBirth <= 18)
+    ) {
+        userBio.starSign = "Aquarius";
+    } else if (
+        (userBio.monthOfBirth === 2 && userBio.dayOfBirth >= 19) || (userBio.monthOfBirth === 3 && userBio.dayOfBirth <= 20)
+    ) {
+        userBio.starSign = "Pisces";
+    } else if (
+        (userBio.monthOfBirth === 3 && userBio.dayOfBirth >= 21) || (userBio.monthOfBirth === 4 && userBio.dayOfBirth <= 19)
+    ) {
+        userBio.starSign = "Aries";
+    } else if (
+        (userBio.monthOfBirth === 4 && userBio.dayOfBirth >= 20) || (userBio.monthOfBirth === 5 && userBio.dayOfBirth <= 20)
+    ) {
+        userBio.starSign = "Taurus";
+    }
+    else if (
+        (userBio.monthOfBirth === 5 && userBio.dayOfBirth >= 21) || (userBio.monthOfBirth === 6 && userBio.dayOfBirth <= 20)
+    ) {
+        userBio.starSign = "Gemini";
+    } else if (
+        (userBio.monthOfBirth === 6 && userBio.dayOfBirth >= 21) || (userBio.monthOfBirth === 7 && userBio.dayOfBirth <= 22)
+    ) {
+        userBio.starSign = "Cancer";
+    } else if (
+        (userBio.monthOfBirth === 7 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 8 && userBio.dayOfBirth <= 22)
+    ) {
+        userBio.starSign = "Leo";
+    } else if (
+        (userBio.monthOfBirth === 8 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 9 && userBio.dayOfBirth <= 22)
+    ) {
+        userBio.starSign = "Virgo"
+    } else if (
+        (userBio.monthOfBirth === 9 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 10 && userBio.dayOfBirth <= 22)
+    ) {
+        userBio.starSign = "Libra";
+    } else if (
+        (userBio.monthOfBirth === 10 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 11 && userBio.dayOfBirth <= 21)
+    ) {
+        userBio.starSign = "Scorpio";
+    } else if (
+        (userBio.monthOfBirth === 11 && userBio.dayOfBirth >= 22) || (userBio.monthOfBirth === 12 && userBio.dayOfBirth <= 21)
+    ) {
+        userBio.starSign = "Sagittarius";
+    } else if (
+        (userBio.monthOfBirth === 12 && userBio.dayOfBirth >= 22) || (userBio.monthOfBirth === 1 && userBio.dayOfBirth <= 19)
+    ) {
+        userBio.starSign = "Capricorn";
+    }
+
+    if ((userBio.yearOfBirth % 400 === 0) || (userBio.yearOfBirth % 100 !== 0 && userBio.yearOfBirth % 4 === 0)) {
+        userBio.leapYear = " (Leap year)";
+    }
+    document.write('User Bio: ' + userBio.name + ' ' + userBio.lastName + ', ' + userBio.age + ' years old' + userBio.leapYear + ', ' + userBio.starSign + '.');
+</script>
+</body>
+</html>
