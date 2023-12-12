@@ -9,99 +9,129 @@
     <title>Document</title>
 </head>
 <body>
-<div class="output"></div>
 <script>
-    let userBio = {
-        name: undefined,
-        lastName: undefined,
-        age: NaN,
-        dayOfBirth: NaN,
-        monthOfBirth: NaN,
-        yearOfBirth: NaN,
-        starSign: undefined,
-        leapYear: '',
-    }
+    // let importantWords = {
+    //     firstWord: '',
+    //     secondWord: '',
+    //     threeWord: '',
+    // };
+    //
+    // let mostWords = confirm(`Tell me three most important words 💚`);
+    //
+    // if (mostWords) {
+    //     do {
+    //         let checkFirstWord = prompt('Write first word');
+    //         if (checkFirstWord?.length > 2 && checkFirstWord) {
+    //             importantWords.firstWord = checkFirstWord;
+    //         } else {
+    //             alert('Wrong text');
+    //         }
+    //     } while (!(importantWords.firstWord.length > 2));
+    // }
+    //
+    // console.table(importantWords);
 
-    let forNameCheck = prompt('Whats your name?');
-    if (forNameCheck.length > 2) {
-       userBio.name = forNameCheck;
-        let forLastNameCheck = prompt('Whats your last name?');
-        if (forLastNameCheck.length > 2) {
-            userBio.lastName = forLastNameCheck;
-            if (isNaN(userBio.dayOfBirth = +prompt('Day of birth?'))) {
-                alert('Enter numbers for the day');
+    // if (mostWords ) {
+    //
+    //     let secondWord = import('Write second word')
+    //     let threeWord = import('Write three word')
+    // }
+
+
+
+
+
+
+    let importantWords = {
+        firstWord: '',
+        secondWord: '',
+        thirdWord: '',
+    };
+    let mostWords = confirm(`Tell me three most important words 💚`);
+    if (mostWords) {
+        do {
+            let checkFirstWord = prompt('Enter the first word:');
+            if (checkFirstWord === null || /\d/.test(checkFirstWord)) {
+                alert('Invalid input. Please try again.');
+            } else {
+                importantWords.firstWord = checkFirstWord;
             }
-            if (isNaN(userBio.monthOfBirth = +prompt('Month of birth?'))) {
-                alert('Enter numbers for the month');
+        } while (importantWords.firstWord === '');
+        do {
+            let checkSecondWord = prompt('Enter the second word:');
+            if (checkSecondWord === null || /\d/.test(checkSecondWord)) {
+                alert('Invalid input. Please try again.');
+            } else {
+                importantWords.secondWord = checkSecondWord;
             }
-            if (isNaN(userBio.yearOfBirth = +prompt('Year of birth?'))) {
-                alert('Enter numbers for the year');
+        } while (importantWords.secondWord === '');
+        do {
+            let checkThirdWord = prompt('Enter the third word:');
+            if (checkThirdWord === null || /\d/.test(checkThirdWord)) {
+                alert('Invalid input. Please try again.');
+            } else {
+                importantWords.thirdWord = checkThirdWord;
+            }
+        } while (importantWords.thirdWord === '');
+        console.log(importantWords);
+        let reFormatting = prompt('Choice formatting option (1-3): \n1)uppercase \n2)lowercase \n3)capitalize');
+        if (reFormatting === 'uppercase' || reFormatting === '1') {
+            for (let wordKey in importantWords) {
+                importantWords[wordKey] = importantWords[wordKey].toUpperCase();
+            }
+        } else if (reFormatting === 'lowercase' || reFormatting === '2') {
+            for (let wordKey in importantWords) {
+                importantWords[wordKey] = importantWords[wordKey].toLowerCase();
+            }
+        } else if (reFormatting === 'capitalize' || reFormatting === '3') {
+            for (let wordKey in importantWords) {
+                importantWords[wordKey] =
+                    importantWords[wordKey].charAt(0).toUpperCase() + importantWords[wordKey].slice(1);
             }
         }
-        else {
-            alert('Few characters in the name!');
-        }
-    } else {
-        alert('Few characters in the name!');
     }
+    console.log(importantWords);
 
-    const userAge = 2022;
-    userBio.age = userAge - userBio.yearOfBirth;
-    if (
-        (userBio.monthOfBirth === 1 && userBio.dayOfBirth >= 20) || (userBio.monthOfBirth === 2 && userBio.dayOfBirth <= 18)
-    ) {
-        userBio.starSign = "Aquarius";
-    } else if (
-        (userBio.monthOfBirth === 2 && userBio.dayOfBirth >= 19) || (userBio.monthOfBirth === 3 && userBio.dayOfBirth <= 20)
-    ) {
-        userBio.starSign = "Pisces";
-    } else if (
-        (userBio.monthOfBirth === 3 && userBio.dayOfBirth >= 21) || (userBio.monthOfBirth === 4 && userBio.dayOfBirth <= 19)
-    ) {
-        userBio.starSign = "Aries";
-    } else if (
-        (userBio.monthOfBirth === 4 && userBio.dayOfBirth >= 20) || (userBio.monthOfBirth === 5 && userBio.dayOfBirth <= 20)
-    ) {
-        userBio.starSign = "Taurus";
-    }
-    else if (
-        (userBio.monthOfBirth === 5 && userBio.dayOfBirth >= 21) || (userBio.monthOfBirth === 6 && userBio.dayOfBirth <= 20)
-    ) {
-        userBio.starSign = "Gemini";
-    } else if (
-        (userBio.monthOfBirth === 6 && userBio.dayOfBirth >= 21) || (userBio.monthOfBirth === 7 && userBio.dayOfBirth <= 22)
-    ) {
-        userBio.starSign = "Cancer";
-    } else if (
-        (userBio.monthOfBirth === 7 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 8 && userBio.dayOfBirth <= 22)
-    ) {
-        userBio.starSign = "Leo";
-    } else if (
-        (userBio.monthOfBirth === 8 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 9 && userBio.dayOfBirth <= 22)
-    ) {
-        userBio.starSign = "Virgo"
-    } else if (
-        (userBio.monthOfBirth === 9 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 10 && userBio.dayOfBirth <= 22)
-    ) {
-        userBio.starSign = "Libra";
-    } else if (
-        (userBio.monthOfBirth === 10 && userBio.dayOfBirth >= 23) || (userBio.monthOfBirth === 11 && userBio.dayOfBirth <= 21)
-    ) {
-        userBio.starSign = "Scorpio";
-    } else if (
-        (userBio.monthOfBirth === 11 && userBio.dayOfBirth >= 22) || (userBio.monthOfBirth === 12 && userBio.dayOfBirth <= 21)
-    ) {
-        userBio.starSign = "Sagittarius";
-    } else if (
-        (userBio.monthOfBirth === 12 && userBio.dayOfBirth >= 22) || (userBio.monthOfBirth === 1 && userBio.dayOfBirth <= 19)
-    ) {
-        userBio.starSign = "Capricorn";
-    }
 
-    if ((userBio.yearOfBirth % 400 === 0) || (userBio.yearOfBirth % 100 !== 0 && userBio.yearOfBirth % 4 === 0)) {
-        userBio.leapYear = " (Leap year)";
-    }
-    document.write('User Bio: ' + userBio.name + ' ' + userBio.lastName + ', ' + userBio.age + ' years old' + userBio.leapYear + ', ' + userBio.starSign + '.');
+
+
+
+
+
+
+
+
+
+    //     let reFormatting = prompt('Enter formatting option: uppercase, lowercase or capitalize');
+    //     if (reFormatting === 'uppercase') {
+    //         importantWords.toUpperCase()
+    //     } else if (reFormatting === 'lowercase') {
+    //         importantWords = importantWords.toLowerCase()
+    //     } else if (reFormatting === 'capitalize') {
+    //
+    //     }
+    // }
+
+
+
+
+    // function getFormattedWord(formattingWord, formattingOption) {
+    //     switch (formattingOption) {
+    //         case 'uppercase':
+    //             return formattingWord.toUpperCase();
+    //         case 'lowercase':
+    //             return formattingWord.toLowerCase();
+    //         case 'capitalize':
+    //             return formattingWord.charAt(0).toUpperCase() + formattingWord.slice(1);
+    //         default:
+    //             return;
+    //     }
+    // }
+
+
+
+
+
 </script>
 </body>
 </html>
