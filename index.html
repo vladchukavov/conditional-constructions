@@ -73,7 +73,6 @@
                 importantWords.thirdWord = checkThirdWord;
             }
         } while (importantWords.thirdWord === '');
-        console.log(importantWords);
         let reFormatting = prompt('Choice formatting option (1-3): \n1)uppercase \n2)lowercase \n3)capitalize');
         if (reFormatting === 'uppercase' || reFormatting === '1') {
             for (let wordKey in importantWords) {
@@ -90,7 +89,7 @@
             }
         }
     }
-    console.log(importantWords);
+    console.log(importantWords.firstWord + ', ' + importantWords.secondWord + ', ' + importantWords.thirdWord + '.');
 
 
 
